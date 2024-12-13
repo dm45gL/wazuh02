@@ -1,4 +1,6 @@
 Haproxy log
+
+```
 Oct 26 15:10:14 webdev haproxy[2247896]: 210.210.184.38:55963 [26/Oct/2023:15:10:14.580] localhost~ glog_sv/glogsv1 0/0/0/9/9 200 476 - - ---- 32/32/0/0/0 0/0 {glog.bayuskylabs.demo} "POST /api/cluster/metrics/multiple HTTP/1.1" glog.bayuskylabs.demo/api/cluster/metrics/multiple 26/Oct/2023:15:10:14.573 "glogsv1" POST /api/cluster/metrics/multiple HTTP/1.1
 Oct 26 15:10:14 webdev haproxy[2247896]: 192.168.78.19:53796 [26/Oct/2023:15:10:14.917] localhost~ webgitdev/apisv1 0/0/2/2/4 204 200 - - ---- 32/32/9/9/0 0/0 {gitlab.bayuskylabs.demo} "POST /api/v4/jobs/request HTTP/1.1" gitlab.bayuskylabs.demo/api/v4/jobs/request 26/Oct/2023:15:10:11.923 "apisv1" POST /api/v4/jobs/request HTTP/1.1
 Oct 26 15:10:14 webdev haproxy[2247896]: 192.168.182.7:34464 [26/Oct/2023:15:10:14.958] localhost~ webgitdev/apisv1 0/0/2/1/3 204 200 - - ---- 32/32/9/9/0 0/0 {gitlab.bayuskylabs.demo} "POST /api/v4/jobs/request HTTP/1.1" gitlab.bayuskylabs.demo/api/v4/jobs/request 26/Oct/2023:15:10:11.954 "apisv1" POST /api/v4/jobs/request HTTP/1.1
@@ -6,8 +8,11 @@ Oct 26 15:10:15 webdev haproxy[2247896]: 210.210.184.38:62336 [26/Oct/2023:15:10
 Oct 26 15:10:15 webdev haproxy[2247896]: 210.210.184.38:62335 [26/Oct/2023:15:10:15.052] localhost~ webgitdev/apisv1 0/0/2/168/170 200 1611 - - ---- 35/35/10/10/0 0/0 {gitlab.bayuskylabs.demo} "POST /api/graphql HTTP/1.1" gitlab.bayuskylabs.demo/api/graphql 26/Oct/2023:15:10:15.044 "apisv1" POST /api/graphql HTTP/1.1
 Oct 26 15:10:15 webdev haproxy[2247896]: 210.210.184.38:62337 [26/Oct/2023:15:10:15.053] localhost~ webgitdev/apisv1 0/0/1/213/214 304 628 - - ---- 35/35/9/9/0 0/0 {gitlab.bayuskylabs.demo} "GET /bayuskylabs/<script>alert("TEST");</script>" gitlab.bayuskylabs.demo/bayuskylabs/<script>alert("TEST");</script> 26/Oct/2023:15:10:15.045 "apisv1" GET /bayuskylabs/<script>alert("TEST");</script> HTTP/1.1
 Oct 26 15:10:15 webdev haproxy[2247896]: 192.168.182.18:51748 [26/Oct/2023:15:10:15.370] localhost~ webgitdev/apisv1 0/0/2/26/28 403 397 - - ---- 36/36/9/9/0 0/0 {gitlab.bayuskylabs.demo} "POST /api/v4/jobs/request HTTP/1.1" gitlab.bayuskylabs.demo/api/v4/jobs/request 26/Oct/2023:15:10:15.366 "apisv1" POST /api/v4/jobs/request HTTP/1.1
-​
+```
+
 local decoder
+
+```xml
 <decoder name="haproxy">
      <program_name>haproxy</program_name>
      <prematch>\d+.\d+.\d+.\d+:\d+ \S+ \S+</prematch>
@@ -53,7 +58,8 @@ local decoder
     <regex>{(\.*)} "(\.*)</regex>
     <order>headers, url</order>
 </decoder>
-​
+```
+
 local rules
 <rule id="100002" level="3">
     <decoded_as>haproxy</decoded_as>
